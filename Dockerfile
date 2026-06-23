@@ -5,7 +5,7 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn compile exec:java -Dexec.mainClass="com.eval3.frontend.StaticPageGenerator"
+RUN mvn compile exec:java -Dexec.mainClass="com.eval3.frontend.StaticPageGenerator" # Generar los archivos estáticos 
 
 # Stage 2: Servir los archivos estáticos con Nginx
 FROM nginx:alpine
