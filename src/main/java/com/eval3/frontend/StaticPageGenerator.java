@@ -642,6 +642,7 @@ function showSection(sectionName) {
 }
 """;
 
+
         js = js.replace("{{BACKEND_USERS_URL}}", usersUrl)
                .replace("{{BACKEND_PRODUCTS_URL}}", productsUrl);
         

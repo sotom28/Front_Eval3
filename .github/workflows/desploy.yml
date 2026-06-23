@@ -21,6 +21,7 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+
       - name: Login a Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
@@ -35,4 +36,4 @@ jobs:
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          echo "Imagen subida: $ECR_REGISTRY/$ECR_REPOSITORY:latest"
+          echo "Imagen subida: $ECR_REGISTRY/$ECR_REPOSITORY:front-eval3-latest"
