@@ -3,7 +3,7 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-COPY .env .
+
 
 ARG BACKEND_USERS_URL
 ARG BACKEND_PRODUCTS_URL
