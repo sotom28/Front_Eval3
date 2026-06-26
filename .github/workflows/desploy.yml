@@ -25,11 +25,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Crear .env con URLs de backends
-        run: |
-          echo "BACKEND_USERS_URL=${{ secrets.BACKEND_USERS_URL }}" > .env
-          echo "BACKEND_PRODUCTS_URL=${{ secrets.BACKEND_PRODUCTS_URL }}" >> .env
-
       - name: Crear repositorio ECR si no existe
         run: |
           aws ecr describe-repositories --repository-names front-eval3 --region ${{ secrets.AWS_REGION }} || \
@@ -41,3 +36,6 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.login-ecr.outputs.registry }}/front-eval3:latest
+          build-args: |
+            BACKEND_USERS_URL=${{ secrets.BACKEND_USERS_URL }}
+            BACKEND_PRODUCTS_URL=${{ secrets.BACKEND_PRODUCTS_URL }}
