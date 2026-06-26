@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 public class StaticPageGenerator {
     
 
+
     
     private static final String OUTPUT_DIR = "output";
 
